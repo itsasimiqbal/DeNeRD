@@ -24,7 +24,7 @@ dataset --> i01, i02, ..., iN
 ```
 imsection(10,10,pad_size,pad_color)
 ```
-pad_size = 10 (number of pixels); pad_color = 0(black)/255(white). This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg). Before quitting the folder, make sure you have removed the original brain section (.png/.jpg) image from each folder.
+(10, 10) generates 10x10 images from the original brain section (.png/.jpg) image; pad_size = 10 (number of pixels); pad_color = 0(black)/255(white). This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg). Before quitting the folder, make sure you have removed the original brain section (.png/.jpg) image from each folder.
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
