@@ -11,12 +11,16 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 #### Steps to follow to run the DeNeRD:
 
-1. Copy/Download your dataset images and place them in a folder
+1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside i01, i02, ...
 #### dataset->i01,i02,...iN]
 
-2. Navigate inside dataset/i1...iN and run the following script:
+2. Navigate inside dataset/i01...iN and run the following script:
 #### imsection (10, 10, pad_size, pad_color)
 pad_size = 10;
 pad_color = 0/1 (binary) | 0/255 (RGB)
-Before quitting the folder, make sure you have removed the brain section
-from this folder.
+
+Before quitting the folder, make sure you have removed the brain section from this folder.
+
+3. Make a sample training file by running the following script at the location where /dataset folder is located:
+#### create_training_generic.m in the folder 
+This will create your first training file. This training file will be called training.mat and will be saved in the current folder.
