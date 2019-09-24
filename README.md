@@ -1,5 +1,4 @@
-# DeNeRD
-high-throughput detection of neurons for brain-wide analysis with deep learning
+# DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning
 
 #### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Nature Scientific Reports](http://www.nature.com/articles/s41598-019-50137-9)
 
@@ -9,7 +8,7 @@ high-throughput detection of neurons for brain-wide analysis with deep learning
 git clone https://github.com/itsasimiqbal/DeNeRD.git
 ```
 
-#### Steps to follow to run the DeNeRD:
+# Steps to follow to run the DeNeRD on your dataset:
 
 #### 1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside sub-folders: i01, i02, ...
 ```
