@@ -12,10 +12,10 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 #### Steps to follow to run the DeNeRD:
 
 1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside i01, i02, ...
-#### dataset->i01,i02,...iN]
+#### dataset->i01,i02,...iN
 
 2. Navigate inside dataset/i01...iN and run the following script:
-#### imsection (10, 10, pad_size, pad_color)
+#### imsection(10,10,pad_size,pad_color)
 pad_size = 10;
 pad_color = 0/1 (binary) | 0/255 (RGB)
 
