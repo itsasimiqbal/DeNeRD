@@ -24,3 +24,17 @@ Before quitting the folder, make sure you have removed the brain section from th
 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 #### create_training_generic.m in the folder 
 This will create your first training file. This training file will be called training.mat and will be saved in the current folder.
+
+
+4. Run the following script where your dataset folder is located to start drawing your bounding boxes. Remove the additional bounding box 
+in the top left corner of the image.
+#### SimpleGUI.m
+Your progress will be saved automatically. When you are finished, you can close the SimpleGUI and your final training file is ready for the network.
+
+5. Make a new RCNN file for your current project. Change the testing and training images to the
+ones in your dataset. Run the following script:
+#### RCNN.m
+Training session of the deep neural network can be observed now. Once you have your final detector ready then SAVE IT!
+
+6. Run the following script to analyse your brain sections and save them in your machine as stars_sect_N.png.
+#### montage.m 
