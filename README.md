@@ -1,6 +1,6 @@
 # DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning
 
-#### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Nature Scientific Reports](http://www.nature.com/articles/s41598-019-50137-9)
+#### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](http://www.nature.com/articles/s41598-019-50137-9)
 
 The block diagram of our system is demonstrated below:
 
@@ -15,18 +15,18 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 # Steps to follow to run the DeNeRD on your dataset:
 
-#### 1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside sub-folders: i01, i02, ...
+#### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ...
 ```
-dataset->i01,i02,...iN
+dataset --> i01, i02, ..., iN
 ```
 
-#### 2. Navigate inside dataset/i01...iN and run the following script:
+#### 2. Navigate inside the dataset/i01, i02, ..., iN and run the following script:
 ```
 imsection(10,10,pad_size,pad_color)
 ```
-pad_size = 10;
-pad_color = 0/1 (binary) | 0/255 (RGB)
-Before quitting the folder, make sure you have removed the brain section from this folder.
+pad_size = 10; (number of pixels)
+pad_color = 0(black)/255(white)
+This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg). Before quitting the folder, make sure you have removed the original brain section (.png/.jpg) image from each folder.
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
@@ -35,15 +35,14 @@ create_training_generic.m
 This will create your first training file (training.mat) and will be saved in the current folder.
 
 
-#### 4. Run the following script where your dataset folder is located to start drawing your bounding boxes. Remove the additional bounding box 
-in the top left corner of the image.
+#### 4. Run the following script where your dataset folder is located to start drawing the ground truth (bounding boxes) on top of your object(s) of interest: neurons, etc.
+Remove the additional (preset) bounding boxes from the top left corner of each image before moving to the next image and so on.
 ```
 SimpleGUI.m
 ```
-Your progress will be saved automatically. When you are finished, you can close the SimpleGUI and your final training file is ready for the network.
+Feel free to navigate to the left and right images. Your progress will be saved automatically. You can also close the MATLAB and reload your training.mat file to resume your ground truth collection. When you are finished, you can close the SimpleGUI and your final training.mat file is ready for the deep neural network.
 
-#### 5. Make a new RCNN file for your current project. Change the testing and training images to the
-ones in your dataset. Run the following script:
+#### 5. Make a new RCNN file for your current project. Change the testing and training images to the ones in your dataset. Run the following script:
 ```
 RCNN.m
 ```
