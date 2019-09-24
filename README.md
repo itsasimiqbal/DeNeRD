@@ -8,3 +8,7 @@ high-throughput detection of neurons for brain-wide analysis with deep learning
 ```
 git clone https://github.com/itsasimiqbal/DeNeRD.git
 ```
+
+#### Steps to follow to run the DeNeRD:
+
+1. Copy/Download your dataset images and place them in a folder called [dataset->i01,i02,...iN]
