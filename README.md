@@ -11,7 +11,7 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 #### Steps to follow to run the DeNeRD:
 
-1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside i01, i02, ...
+#### 1. Copy/Download your dataset images and place them in a folder called dataset, you can put each brain section image inside sub-folders: i01, i02, ...
 ```
 dataset->i01,i02,...iN
 ```
