@@ -30,9 +30,9 @@ Before quitting the folder, make sure you have removed the brain section from th
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
-create_training_generic.m in the folder 
+create_training_generic.m 
 ```
-This will create your first training file. This training file will be called training.mat and will be saved in the current folder.
+This will create your first training file (training.mat) and will be saved in the current folder.
 
 
 #### 4. Run the following script where your dataset folder is located to start drawing your bounding boxes. Remove the additional bounding box 
