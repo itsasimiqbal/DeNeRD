@@ -6,6 +6,9 @@ The block diagram of our system is demonstrated below:
 
 ![alt text](https://github.com/itsasimiqbal/DeNeRD/blob/master/DeNeRD_block.png)
 
+The pipeline takes a brain section as input and generates detections on the neurons as bounding boxes:
+![alt text](https://github.com/itsasimiqbal/DeNeRD/blob/master/Figure_2.jpg)
+
 # Download:
 #### Clone the DeNeRD repository by running the following command in your terminal window:
 ```
