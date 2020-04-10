@@ -58,6 +58,6 @@ The pipeline takes a brain section as input and generates detections on the neur
 If you use any part of this code for your work, please cite the following:
 ```
 Iqbal, Asim, Asfandyar Sheikh, and Theofanis Karayannis. 
-"DeneRD: high-throughput detection of neurons for brain-wide analysis with deep learning." 
+"DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning." 
 Scientific Reports 9.1 (2019): 1-13.
 ```
