@@ -1,6 +1,6 @@
 # DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning
 
-#### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](http://www.nature.com/articles/s41598-019-50137-9)
+#### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](https://rdcu.be/b3Iwl)
 
 The block diagram of our system is demonstrated below:
 
