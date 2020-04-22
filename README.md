@@ -22,7 +22,7 @@ dataset --> i01, i02, ..., iN
 
 #### 2. Navigate inside the dataset/i01, i02, ..., iN and run the following script:
 ```
-imsection(10,10,pad_size,pad_color,resize_ratio)
+imsection_DeNeRD(10,10,pad_size,pad_color,resize_ratio)
 ```
 (10, 10) generates 10x10 images from the original brain section (.png/.jpg) image; pad_size = 10 (number of pixels); pad_color = 0(black)/255(white), resize_ratio = 1/0.5 will resize/downsample the image.
 This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg).
