@@ -30,7 +30,7 @@ Before quitting the folder, make sure you have removed the original brain sectio
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
-create_training_generic.m 
+training_generic_DeNeRD.m 
 ```
 This will create your first training file (training.mat) and will be saved in the current folder.
 
