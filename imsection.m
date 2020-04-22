@@ -19,6 +19,8 @@
 % LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
+%% DeNeRD pipeline
+% Cite: Iqbal A, et al. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports. 2019 Sep 25; 9 (1): 1-3.
 %% Image Sectioning Tool
 % Use this function to chop up an image into smaller sections
 % Specify image file, number of horizontal sections, and number of vertical sections

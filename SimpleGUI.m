@@ -19,6 +19,10 @@
 % LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
+%% DeNeRD pipeline
+% Cite: Iqbal A, et al. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports. 2019 Sep 25; 9 (1): 1-3.
+% code to generate an initial training.mat file for Faster R-CNN
+% works for multiple folders (e.g. i1, i2) inside the dataset/ folder
 
 function varargout = SimpleGUI(varargin)
 % SIMPLEGUI MATLAB code for SimpleGUI.fig
