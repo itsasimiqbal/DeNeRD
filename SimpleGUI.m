@@ -127,7 +127,7 @@ for i = 1:size(training,1)
     end
 end
 
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
 image(I)
 axis off
 axis image
@@ -178,7 +178,7 @@ training{currentIndex,2}(box_index+1,3) = rect(3);
 training{currentIndex,2}(box_index+1,4) = rect(4);
 axes(handles.axes1)
 I = imread(training{currentIndex,1});
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
 image(I)
 axis off
 axis image
@@ -222,7 +222,7 @@ end
  training{currentIndex,2}(toRemove,:) = [];
  axes(handles.axes1)
  I = imread(training{currentIndex,1});
- I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+ I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
  image(I)
  axis off
  axis image
@@ -267,7 +267,7 @@ for index = 1:imageCount
             currentIndex = currentIndex-1;
             axes(handles.axes1)
             I = imread(training{currentIndex,1});
-            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
             image(I)
             axis off
             axis image
@@ -312,7 +312,7 @@ for index = 1:imageCount
             currentIndex = currentIndex+1;
             axes(handles.axes1)
             I = imread(training{currentIndex,1});
-            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
             image(I)
             axis off
             axis image
@@ -372,7 +372,7 @@ for i = 1:size(training,1)
     end
 end
 
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','red');
+I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
 image(I)
 axis off
 axis image

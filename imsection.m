@@ -28,8 +28,8 @@
 % Image sections will be saved in the same folder as the script file (as .png, can be edited in script)
 % Specify image using ' ', e.g. sections = section('banana.jpg',5,3)
 
-function  [] = imsection(HorzSec,VertSec, pad_size, pad_color)
-    resize_ratio = 1;%0.5
+function  [] = imsection(HorzSec,VertSec, pad_size, pad_color, resize_ratio)
+    %resize_ratio = 1;%0.5
     path = pwd;
     filter = {'*.png'; '*.tif'; '*.jpg'};
     [images, imPath, ~] = uigetfile(filter, 'MultiSelect', 'On');

@@ -24,7 +24,7 @@
 %% ## going inside dataset/ folder
 % code to generate an initial training.mat file for Faster R-CNN
 % works for multiple folders (e.g. i1, i2) inside the dataset/ folder
-clc; clear all;
+clc;
 data_list=string(ls('dataset')); %go inside 
 data_list(1:2) = [];
 data_list = sort_nat(data_list);
