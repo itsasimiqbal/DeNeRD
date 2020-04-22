@@ -54,4 +54,4 @@ end
 s2 = horzcat(trainingdata,bounds3);
 training = cell2table(s2);
 training = table2cell(training);
-save('training_generic.mat', 'training');
+save('training.mat', 'training');

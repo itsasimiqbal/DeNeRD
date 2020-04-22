@@ -1,29 +1,3 @@
-% MIT License
-% 
-% Copyright (c) 2019 Asim Iqbal
-% 
-% Permission is hereby granted, free of charge, to any person obtaining a copy
-% of this software and associated documentation files (the "Software"), to deal
-% in the Software without restriction, including without limitation the rights
-% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-% copies of the Software, and to permit persons to whom the Software is
-% furnished to do so, subject to the following conditions:
-% 
-% The above copyright notice and this permission notice shall be included in all
-% copies or substantial portions of the Software.
-% 
-% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-% SOFTWARE.
-%% DeNeRD pipeline
-% Cite: Iqbal A, et al. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports. 2019 Sep 25; 9 (1): 1-3.
-% code to generate an initial training.mat file for Faster R-CNN
-% works for multiple folders (e.g. i1, i2) inside the dataset/ folder
-
 function varargout = SimpleGUI(varargin)
 % SIMPLEGUI MATLAB code for SimpleGUI.fig
 %      SIMPLEGUI, by itself, creates a new SIMPLEGUI or raises the existing
@@ -48,7 +22,7 @@ function varargout = SimpleGUI(varargin)
 
 % Edit the above text to modify the response to help SimpleGUI
 
-% Last Modified by GUIDE v2.5 10-Jun-2017 15:07:17
+% Last Modified by GUIDE v2.5 06-Dec-2017 23:43:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -84,38 +58,33 @@ handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 
-os = getenv('os');
-occurencesWindows = findstr(os, 'Windows');
+load('training.mat')
 
-if occurencesWindows == []
-    load('training_OSX.mat')
-    currentIndex = 0;
-    imagesInFolder = 0;
+if ~ispc
     path = pwd;
-    filter = '*.png';
-    [selectedFile, selectedPath] = uigetfile(fullfile(path, filter));
+%     filter = {'*.png'; '*.jpg'};
+    [selectedFile, selectedPath] = uigetfile({'*.png'; '*.jpg'}, fullfile(path));%, filter));
     imagesInFolder = imageSet(selectedPath);
     parts = strsplit(selectedPath, '/');
     relevantPath = strcat(parts(end-1),'/', selectedFile);
-else
-    load('training.mat')
+else  
     path = pwd;
-    filter = '*.png';
-    [selectedFile, selectedPath] = uigetfile(fullfile(path, filter));
+    %     filter = {'*.png'; '*.jpg'};
+    [selectedFile, selectedPath] = uigetfile({'*.png'; '*.jpg'}, fullfile(path));%, filter));
     imagesInFolder = imageSet(selectedPath);
     parts = strsplit(selectedPath, '\');
     relevantPath = strcat(parts(end-1),'\', selectedFile);
+    relevantPath = regexprep(relevantPath, '\', '/');
 end
-
 
 axes(handles.axes1)
 set(hObject,'toolbar','figure');
 set(hObject,'menubar','figure');
 
-I = imread(char(relevantPath));
-image(I);
+I = imread(char(strcat('dataset/', relevantPath)));
+% image(I);
 
-currentIndex = 1;
+% currentIndex = 1;
 
 for i = 1:size(training,1)
     condition = strfind(char(training{i,1}), char(relevantPath));
@@ -127,16 +96,17 @@ for i = 1:size(training,1)
     end
 end
 
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+I = insertShape(I, 'Rectangle', training{currentIndex,2});
 image(I)
+set(handles.text5, 'String', string(training{currentIndex,1}));
 axis off
 axis image
 
-if occurencesWindows == []
-    save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-else
+% if occurencesWindows == []
+%     save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+% else
     save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
-end
+% end
 
 
 % UIWAIT makes SimpleGUI wait for user response (see UIRESUME)
@@ -160,14 +130,12 @@ function drawBound_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-os = getenv('os');
-occurencesWindows = strfind(os, 'Windows');
 
-if occurencesWindows == []
-    load('training_OSX.mat')
-else
+% if occurencesWindows == []
+%     load('training_OSX.mat')
+% else
     load('training.mat')
-end
+% end
 
 lim = axis;
 rect = getrect;
@@ -178,17 +146,17 @@ training{currentIndex,2}(box_index+1,3) = rect(3);
 training{currentIndex,2}(box_index+1,4) = rect(4);
 axes(handles.axes1)
 I = imread(training{currentIndex,1});
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+I = insertShape(I, 'Rectangle', training{currentIndex,2});
 image(I)
 axis off
 axis image
 axis(lim)
 
-if occurencesWindows == []
-    save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-else
+% if occurencesWindows == []
+%     save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+% else
     save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
-end
+% end
 
 % --- Executes on button press in removeBound.
 function removeBound_Callback(hObject, eventdata, handles)
@@ -196,14 +164,13 @@ function removeBound_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-os = getenv('os');
-occurencesWindows = findstr(os, 'Windows');
 
-if occurencesWindows == []
-    load('training_OSX.mat')
-else
+
+% if occurencesWindows == []
+%     load('training_OSX.mat')
+% else
     load('training.mat')
-end
+% end
 
 lim = axis;
 toRemove = [];
@@ -222,17 +189,17 @@ end
  training{currentIndex,2}(toRemove,:) = [];
  axes(handles.axes1)
  I = imread(training{currentIndex,1});
- I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+ I = insertShape(I, 'Rectangle', training{currentIndex,2});
  image(I)
  axis off
  axis image
  axis(lim)
  
- if occurencesWindows == []
-    save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-else
+%  if occurencesWindows == []
+%     save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+% else
     save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
- end
+%  end
 
  
 
@@ -243,14 +210,12 @@ function previousImage_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-os = getenv('os');
-occurencesWindows = findstr(os, 'Windows');
 
-if occurencesWindows == []
-    load('training_OSX.mat')
-else
+% if occurencesWindows == []
+%     load('training_OSX.mat')
+% else
     load('training.mat')
-end
+% end
 
 imageCount = imagesInFolder.Count;
 
@@ -267,20 +232,22 @@ for index = 1:imageCount
             currentIndex = currentIndex-1;
             axes(handles.axes1)
             I = imread(training{currentIndex,1});
-            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+            I = insertShape(I, 'Rectangle', training{currentIndex,2});
             image(I)
+            set(handles.text5, 'String', string(training{currentIndex,1}));
             axis off
             axis image
 
-            if occurencesWindows == []
-                save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-            else
+%             if occurencesWindows == []
+%                 save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+%             else
                 save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
 %             end
             break;
-         end
+        end
     end
-end
+
+
 
 
 % --- Executes on button press in nextImage.
@@ -289,14 +256,14 @@ function nextImage_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-os = getenv('os');
-occurencesWindows = findstr(os, 'Windows');
-
-if occurencesWindows == []
-    load('training_OSX.mat')
-else
+% os = getenv('os');
+% occurencesWindows = findstr(os, 'Windows');
+% 
+% if occurencesWindows == []
+%     load('training_OSX.mat')
+% else
     load('training.mat')
-end
+% end
 
 imageCount = imagesInFolder.Count;
 
@@ -312,20 +279,22 @@ for index = 1:imageCount
             currentIndex = currentIndex+1;
             axes(handles.axes1)
             I = imread(training{currentIndex,1});
-            I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+            I = insertShape(I, 'Rectangle', training{currentIndex,2});
             image(I)
+            set(handles.text5, 'String', string(training{currentIndex,1}));
             axis off
             axis image
 
-            if occurencesWindows == []
-                save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-            else
+%             if occurencesWindows == []
+%                 save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+%             else
                 save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
-            end
+%             end
             break;
         end
     end
 end
+
 
 
 % --- Executes on button press in changeImage.
@@ -334,36 +303,42 @@ function changeImage_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-os = getenv('os');
-occurencesWindows = findstr(os, 'Windows');
+load('training.mat')
 
-if occurencesWindows == []
-    load('training_OSX.mat')
+if ~ispc
     path = pwd;
-    filter = '*.png';
-    [selectedFile, selectedPath] = uigetfile(fullfile(path, filter));
+%     filter = '*.png';
+    [selectedFile, selectedPath] = uigetfile({'*.png'; '*.jpg'}, fullfile(path));%, filter));
     imagesInFolder = imageSet(selectedPath);
     parts = strsplit(selectedPath, '/');
     relevantPath = strcat(parts(end-1),'/', selectedFile);
 else
-    load('training.mat')
     path = pwd;
-    filter = '*.png';
-    [selectedFile, selectedPath] = uigetfile(fullfile(path, filter));
+%     filter = '*.png';
+    [selectedFile, selectedPath] = uigetfile({'*.png'; '*.jpg'}, fullfile(path));%, filter));
     imagesInFolder = imageSet(selectedPath);
     parts = strsplit(selectedPath, '\');
     relevantPath = strcat(parts(end-1),'\', selectedFile);
+    relevantPath = regexprep(relevantPath, '\', '/');
 end
 
 
-axes(handles.axes1)
-I = imread(char(relevantPath));
-image(I);
+% image(I);
 
-currentIndex = 1;
+% currentIndex = 1;
 
 for i = 1:size(training,1)
-    condition = (char(relevantPath) == char(training{i,1}));
+    currentImage = char(strcat('dataset/', string(relevantPath)));
+    trainingFileLocation = char(training{i,1});
+    if trainingFileLocation(end) == ' ' & size(currentImage) == size(trainingFileLocation(1:end-1))
+        condition = (currentImage == trainingFileLocation(1:end-1));
+    elseif trainingFileLocation(end) == ' ' & size(currentImage) ~= size(trainingFileLocation(1:end-1))
+        continue;
+    elseif trainingFileLocation(end) ~= ' ' & size(currentImage) == size(trainingFileLocation)
+        condition = (currentImage == trainingFileLocation);
+    else
+        continue;
+    end
     if condition
         currentIndex = i;
         break;
@@ -372,13 +347,16 @@ for i = 1:size(training,1)
     end
 end
 
-I = insertShape(I, 'Rectangle', training{currentIndex,2},'Color','yellow');
+
+axes(handles.axes1)
+I = imread(char(strcat('dataset/', relevantPath)));
+I = insertShape(I, 'Rectangle', training{currentIndex,2});
 image(I)
+set(handles.text5, 'String', string(training{currentIndex,1}));
 axis off
 axis image
 
-if occurencesWindows == []
-    save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
-else
+% if occurencesWindows == []
+%     save('training_OSX.mat', 'training', 'currentIndex', 'imagesInFolder')
+% else
     save('training.mat', 'training', 'currentIndex', 'imagesInFolder')
-end
