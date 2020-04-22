@@ -22,7 +22,7 @@ dataset --> i01, i02, ..., iN
 
 #### 2. Navigate inside the dataset/i01, i02, ..., iN and run the following script:
 ```
-imsection(10,10,pad_size,pad_color,resize_ratio)
+imsection_DeNeRD(10,10,pad_size,pad_color,resize_ratio)
 ```
 (10, 10) generates 10x10 images from the original brain section (.png/.jpg) image; pad_size = 10 (number of pixels); pad_color = 0(black)/255(white), resize_ratio = 1/0.5 will resize/downsample the image.
 This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg).
@@ -30,7 +30,7 @@ Before quitting the folder, make sure you have removed the original brain sectio
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
-create_training_generic.m 
+training_generic_DeNeRD.m 
 ```
 This will create your first training file (training.mat) and will be saved in the current folder.
 
