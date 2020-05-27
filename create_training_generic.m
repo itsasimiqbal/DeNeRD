@@ -75,4 +75,4 @@ training = table2cell(training);
 % training.training=char(training.training);
 % training = table2cell(training);
 
-save('training.mat', 'training');
+%save('training.mat', 'training');
