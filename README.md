@@ -15,7 +15,7 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 The code is sucessfully tested on Windows 10, x64-based processor with NVIDIA Quadro P4000 GPU.
 
-#### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ... i0N. As a sample, four brain sections from Allen Brain data is already placed in the folders.
+#### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ... iN. As a sample, four brain sections from Allen Brain data is already placed in the folders.
 ```
 dataset --> i01, i02, ..., iN
 ```
