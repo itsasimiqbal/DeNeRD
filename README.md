@@ -17,23 +17,22 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 The code is sucessfully tested on Windows 10, x64-based processor with NVIDIA Quadro P4000 GPU.
 
-#### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ...
+#### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ... i0N. As a sample, four brain sections from Allen Brain data is already placed in the folders.
 ```
 dataset --> i01, i02, ..., iN
 ```
 
 #### 2. Navigate inside the dataset/i01, i02, ..., iN and run the following script:
 ```
-imsection_DeNeRD(10,10,pad_size,pad_color,resize_ratio)
+imsection_DeNeRD(image_num,image_num,pad_size,pad_color,resize_ratio)
 ```
-(10, 10) generates 10x10 images from the original brain section (.png/.jpg) image; 
 ```
+image_num = 10 % (number of images: 10x10)
 pad_size = 10 % (number of pixels on the boundaries)
 pad_color = 255 % 0(black)/255(white)
-resize_ratio = 1/0.5 % (resize/downsample the image size)
+resize_ratio = 1 % 1/0.5/0.25 (resize/downsample the image size)
 ```
-This will generate the small images (.png/.jpg) from the original (large) brain section image (.png/.jpg).
-Before quitting the folder, make sure you have removed the original brain section (.png/.jpg) image from each folder.
+This will generate 10x10 small images (.png) from the original (large) brain section image (.png/.jpg/.tif) with white padding of 10 pixels. Before quitting the folder, make sure you have removed the original brain sections (.png/.jpg) images (e.g. allen_p56_gad1_sect_x.jpg in i01) from i01/i02/...iN folders.
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
