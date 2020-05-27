@@ -30,7 +30,7 @@ Before quitting the folder, make sure you have removed the original brain sectio
 
 #### 3. Make a sample training file by running the following script at the location where /dataset folder is located:
 ```
-training_generic_DeNeRD.m 
+training_generic_DeNeRD
 ```
 This will create your first training file (training.mat) and will be saved in the current folder.
 
@@ -38,19 +38,19 @@ This will create your first training file (training.mat) and will be saved in th
 #### 4. Run the following script where your dataset folder is located to start drawing the ground truth (bounding boxes) on top of your object(s) of interest: neurons, etc.
 Remove the additional (preset) bounding boxes from the top left corner of each image before moving to the next image and so on.
 ```
-SimpleGUI.m
+SimpleGUI
 ```
 Feel free to navigate to the left and right images. Your progress will be saved automatically. You can also close the MATLAB and reload your training.mat file to resume your ground truth collection. When you are finished, you can close the SimpleGUI and your final training.mat file is ready for the deep neural network.
 
 #### 5. Make a new RCNN file for your current project. Change the testing and training images to the ones in your dataset. Run the following script:
 ```
-RCNN.m
+RCNN
 ```
 Training session of the deep neural network can be observed now. Once you have your final detector ready then SAVE IT!
 
 #### 6. Run the following script to analyse your brain sections and save them in your machine as stars_sect_N.png.
 ```
-montage.m 
+montage
 ```
 
 The pipeline takes a brain section as input and generates detections on the neurons as bounding boxes:
