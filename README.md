@@ -1,6 +1,6 @@
 # DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning
 
-#### [Iqbal, A., Sheikh, A. and Karayannis, T., 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](https://rdcu.be/b3Iwl)
+#### [Asim Iqbal, Asfandyar Sheikh, Theofanis Karayannis, 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](https://rdcu.be/b3Iwl)
 
 The pipeline takes a brain section as input and generates detections on the neurons as bounding boxes:
 ![alt text](https://github.com/itsasimiqbal/DeNeRD/blob/master/Figure_2.jpg)
