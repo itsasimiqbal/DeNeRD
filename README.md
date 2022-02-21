@@ -2,18 +2,28 @@
 
 #### [Asim Iqbal, Asfandyar Sheikh, Theofanis Karayannis, 2019. DeNeRD: high-throughput detection of neurons for brain-wide analysis with deep learning. Scientific Reports](https://rdcu.be/b3Iwl)
 
-The pipeline takes a brain section as input and generates detections on the neurons as bounding boxes:
+<!-- The pipeline takes a brain section as input and generates detections on the neurons as bounding boxes:
 ![alt text](https://github.com/itsasimiqbal/DeNeRD/blob/master/Figure_2.jpg)
-
+ -->
 # Download:
 #### Clone the DeNeRD repository by running the following command in your terminal window:
 ```
 git clone https://github.com/itsasimiqbal/DeNeRD.git
 ```
 
+# New! :mouse2:
+### Generalized DeNeRD model to analyse large-scale cleared brain tissue neuroimaging data
+Trained model (`Cleared_DeNeRD.mat`) for detecting neurons in cleared brain tissue is available now. The model is scale- and intensity-invariant and handles diverse imaging modalities e.g. CLARITY techniques, ISH, FISH and other light-sheet imaging. It is trained on thousand of neurons, hand labeled by annotation experts at the University of Zurich and ETH Zurich. Run the following (MATLAB script) by just changing your path locations to analyse large scale brain imaging datasets:
+```
+montage_testing_script_DeNeRD
+```
+Following is a demo output by running the model on specific scale and intensity-based settings.
+![alt text](https://raw.githubusercontent.com/itsasimiqbal/DeNeRD/master/Cleared_Brains_Detector/Cleared_Results/sample_1_overlay_scale_1_intensity_1.2.png)
+
+
 # Steps to follow to run the DeNeRD on your dataset:
 
-The code is sucessfully tested on Windows 10, x64-based processor with NVIDIA Quadro P4000 GPU.
+The code is sucessfully tested on MATLAB R2018b with Windows 10, x64-based processor with NVIDIA Quadro P4000 GPU.
 
 #### 1. Copy/Download your dataset images and place them in /dataset folder, you can put each brain section (.png/.jpg) image inside sub-folders: i01, i02, ... iN. As a sample, four brain sections from Allen Brain data is already placed in the folders.
 ```
