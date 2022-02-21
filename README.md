@@ -13,7 +13,7 @@ git clone https://github.com/itsasimiqbal/DeNeRD.git
 
 # New! :mouse2:
 ### Generalized DeNeRD model to analyse large-scale cleared brain tissue neuroimaging data
-Trained model (`Cleared_DeNeRD.mat`) for detecting neurons in cleared brain tissue is available now. The model is scale- and intensity-invariant and handles diverse imaging modalities e.g. CLARITY techniques, ISH, FISH and other light-sheet imaging. It is trained on thousand of neurons, hand labeled by annotation experts at the University of Zurich and ETH Zurich. Run the following (MATLAB script) by just changing your path locations to analyse large scale brain imaging datasets:
+Trained model (`Cleared_DeNeRD.mat`) for detecting neurons in cleared brain tissue is available now. The model is scale- and intensity-invariant and handles diverse imaging modalities e.g. CLARITY techniques, ISH, FISH and other light-sheet imaging. It is trained on thousands of neurons, hand-labeled by annotation experts at the University of Zurich and ETH Zurich. Run the following (MATLAB script) by just changing your path locations to analyse large scale brain imaging datasets:
 ```
 montage_testing_script_DeNeRD
 ```
