@@ -17,7 +17,7 @@ Trained model (`Cleared_DeNeRD.mat`) for detecting neurons in cleared brain tiss
 ```
 montage_testing_script_DeNeRD
 ```
-Following is a demo output by running the model on specific scale and intensity-based settings.
+Following is a demo output by running the model on specific scale and intensity-based settings:
 ![alt text](https://raw.githubusercontent.com/itsasimiqbal/DeNeRD/master/Cleared_Brains_Detector/Cleared_Results/sample_1_overlay_scale_1_intensity_1.2.png)
 
 
